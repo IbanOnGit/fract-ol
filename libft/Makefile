@@ -62,11 +62,12 @@ SRCS = ft_isalpha.c \
 		ft_print_utils.c \
 		ft_printf.c
 
-LIBFT = /libtf/
+LIBFT = libft/
 
 INCLUDE = libft.h
 
-OBJS_DIR = .obj
+OBJS_DIR = .objs
+OBJS_FILES = $(SRCS_FILES:%.c=%.o)
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(OBJS_FILES))
 
@@ -94,12 +95,12 @@ $(OBJS_DIR):
 
 
 clean:
-	@rm -rf $(OBJS) $(OBJS_BONUS)
-	@echo "$(RED) All objects in $(LIBFT)$(OBJS_DIR) removed$(RESET)$(CROSS)"
+	@rm -rf $(OBJS_DIR)
+	@echo "$(RED) $(LIBFT)$(OBJS_DIR) removed$(RESET)$(CROSS)"
 
 fclean: clean
-	@rm -rf $(NAME) $(OBJS_DIR)
-	@echo "$(RED)$(NAME) and $(OBJS_DIR) removed$(RESET)$(CROSS)"
+	@rm -rf $(NAME)
+	@echo "$(RED)$(NAME) removed$(RESET)$(CROSS)"
 
 re: fclean all
 
