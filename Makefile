@@ -40,7 +40,11 @@ INCS_DIR = includes
 # includes files so *.h
 OBJS_FILES = $(SRCS_FILES:%.c=%.o)
 
-SRCS_FILES = main.c
+SRCS_FILES = main.c \
+			 init.c \
+			 hooks_utils.c \
+			 utils.c \
+			 display.c
 
 INCS_FILES = *.h
 
@@ -84,6 +88,8 @@ $(MLX):
 	@make -C ./mlx -s
 	@echo "$(GREEN)$@ created$(CHECK)$(RESET_COLOR)"
 
+norm:
+	@norminette includes srcs
 
 clean:
 	@rm -rf $(OBJS_DIR)

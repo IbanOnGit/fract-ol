@@ -6,26 +6,44 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:53:09 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/01 14:08:14 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/02 19:59:05 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
-#include <stdlib.h>
+#include "fractol.h"
 #include "libft.h"
+#include <stdlib.h>
+// #include <X11/keysym.h>
+// #include <X11/X.h>
 
-int main(int argc, char **argv)
+char	*parse_args(int argc, char **argv)
 {
-	(void)argc;
-	(void)argv;
-	void	*mlx_ptr;
-	void	*window_ptr;
+	if (argc == 2)
+	{
+		if (!ft_strncmp(argv[1], "Julia", 6))
+			return ("julia");
+		else if (!ft_strncmp(argv[1], "Mandelbrot", 11))
+			return ("mandelbrot");
+		else	
+		{
+			ft_printf("Available fractals are : Julia and Mandelbrot");
+			exit(0);
+		}
+	}
+	else
+	{
+		ft_printf("Available fractals are : Julia and Mandelbrot");
+		exit(0);
+	}
+}
 
-	mlx_ptr = mlx_init();
-	if (!mlx_ptr)
-		return (0);
-	window_ptr = mlx_new_window(mlx_ptr, 500, 500, "t'es le + bo");
-	mlx_loop(mlx_ptr);
-	mlx
-	mlx_destroy_window(mlx_ptr, window_ptr);	
+int	main(int argc, char **argv)
+{
+	t_vars	vars;
+	char	*fractal;
+
+	fractal = parse_args(argc, argv);
+	init_all(&vars, fractal);
+	mlx_loop(vars.mlx);
 }
