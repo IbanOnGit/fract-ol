@@ -40,31 +40,33 @@ INCS_DIR = includes
 # includes files so *.h
 OBJS_FILES = $(SRCS_FILES:%.c=%.o)
 
-SRCS_FILES = *.c
+SRCS_FILES = main.c
 
 INCS_FILES = *.h
 
 
-# My library with all my fonctions
+# libft is my library, mlx is the school's library
 LIBFT = libft/libft.a
-
+MLX = mlx/libmlx.a
 
 # All compilation flags
-CFLAGS = -Wall -Wextra -Werror #Useful flags ->  -g3   -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #Useful flags: -g3 -fsanitize=address
+MLXFLAGS = -lX11 -lXext
 IFLAGS = -I includes \
 		 -I libft \
-		 -I *.h
+		 -I mlx \
+		 -I fractol.h
 
 
 # Compiler to use
 CC = cc
-
+CLANG = clang
 
 # All rules
-all: $(LIBFT) $(NAME)
+all: $(LIBFT) $(MLX) $(NAME)
 
 $(NAME): $(OBJS_DIR) $(OBJS) $(INCS)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	@$(CC) $(CFLAGS) $(MLXFLAGS) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
 	@echo "\n$(GREEN)$(NAME) created$(CHECK)$(RESET_COLOR)"
 
 $(OBJS_DIR)/%.o:  $(SRCS_DIR)/%.c $(INCS)
@@ -78,17 +80,21 @@ $(OBJS_DIR):
 $(LIBFT):
 	@make -C ./libft -s
 
+$(MLX):
+	@make -C ./mlx -s
+	@echo "$(GREEN)$@ created$(CHECK)$(RESET_COLOR)"
+
+
 clean:
-	@rm -rf $(OBJS)
-	@echo "$(RESET_COLOR)$(RED) All objects in $(OBJS_DIR) removed$(RESET_COLOR)$(CROSS)"
+	@rm -rf $(OBJS_DIR)
+	@echo "$(RESET_COLOR)$(RED)$(OBJS_DIR) removed$(CROSS)$(RESET_COLOR)"
 	@make clean -C ./libft -s
+	@make clean -C ./mlx -s
 
 fclean: clean
-	@rm -rf $(OBJS_DIR) $(NAME) $(LIBFT)
-	@echo "$(RED) $(NAME), $(LIBFT) and $(OBJS_DIR) removed$(RESET_COLOR)$(CROSS)"
+	@rm -rf $(NAME)
+	@echo "$(RED)$(NAME) removed$(CROSS)$(RESET_COLOR)"
 	@make fclean -C ./libft -s
-
-
 
 re: fclean all
 
