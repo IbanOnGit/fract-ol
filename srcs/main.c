@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:53:09 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/02 19:59:05 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/03 14:51:45 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*parse_args(int argc, char **argv)
 			return ("julia");
 		else if (!ft_strncmp(argv[1], "Mandelbrot", 11))
 			return ("mandelbrot");
-		else	
+		else
 		{
 			ft_printf("Available fractals are : Julia and Mandelbrot");
 			exit(0);
