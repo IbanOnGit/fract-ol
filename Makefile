@@ -70,7 +70,7 @@ CLANG = clang
 all: $(LIBFT) $(MLX) $(NAME)
 
 $(NAME): $(OBJS_DIR) $(OBJS) $(INCS)
-	@$(CC) $(CFLAGS) $(MLXFLAGS) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
+	@$(CC) $(CFLAGS)    $(OBJS) $(LIBFT) $(MLX) $(MLXFLAGS) -o $(NAME)
 	@echo "\n$(GREEN)$(NAME) created$(CHECK)$(RESET_COLOR)"
 
 $(OBJS_DIR)/%.o:  $(SRCS_DIR)/%.c $(INCS)

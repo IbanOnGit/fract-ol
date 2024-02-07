@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 15:27:06 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/01/05 14:12:02 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:28:01 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	ft_print_adress(unsigned long long addr, char *base, int *count)
 		ft_print_number_base(addr / len_base, base, count);
 		ft_print_char(base[addr % len_base], count);
 	}
-	if (addr >= 0 && addr < len_base)
+	if (addr > 0 && addr < len_base)
 		return (ft_print_char(base[addr], count));
 	return (0);
 }

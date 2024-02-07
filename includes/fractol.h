@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:51:44 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/03 18:38:05 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:26:08 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define FRACTOL_H
 
 #include <stdint.h>
+
+#include <stdio.h>
+
 
 # define TITLE "fractol"
 # define WIDTH 1080
@@ -67,8 +70,7 @@ void	init_vars(t_vars *vars);
 void	free_exit(t_vars *vars, int err_code);
 int		key_press(int keycode, t_vars *vars);
 int		close_window(t_vars *vars);
-int		calculate_limit(char *name, double fract_x, double fract_y);
-void	color_pixel(t_vars *vars, t_color color, int x, int y);
-t_color	get_color(int nb_iteration);
+int		calculate_limit(char *name, int x, int y);
+uint32_t	calculate_color(int x, int y, char *name);
 
 #endif

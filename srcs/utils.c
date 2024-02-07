@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 18:00:53 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/03 18:32:45 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:25:08 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,17 @@ void	free_exit(t_vars *vars, int err_code)
 		free(vars->mlx);
 	}
 	exit(err_code);
+}
+
+uint32_t	calculate_color(int x, int y, char *name)
+{
+	t_color	color;
+	int		nb_iteration;
+
+	nb_iteration = calculate_limit(name, x , y);
+	if (nb_iteration == MAX_ITERATION)
+		color.color = 0xFF000000;
+	else
+		color.color = 0xFF000000;
+	return (color.color);
 }

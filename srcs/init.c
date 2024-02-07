@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:19:37 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/03 18:40:17 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:25:36 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	init_fractal(t_vars *vars, char *name)
 {
 	int			win_x;
 	int			win_y;
-	t_complex	z;
+	t_color		color;
 	
 	win_x = 0;
 	win_y = 0;
@@ -51,6 +51,9 @@ void	init_fractal(t_vars *vars, char *name)
 	{
 		while (win_x < WIDTH)
 		{
+			color.color = calculate_color(win_x, win_y, name);
+			// change_color(???);
+			(void)color;
 			win_x++;
 		}
 		win_y++;
