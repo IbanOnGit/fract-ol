@@ -44,7 +44,8 @@ SRCS_FILES = main.c \
 			 init.c \
 			 hooks_utils.c \
 			 utils.c \
-			 display.c
+			 maths.c \
+			 render.c
 
 INCS_FILES = *.h
 
@@ -55,13 +56,10 @@ MLX = mlx/libmlx.a
 
 # All compilation flags
 CFLAGS = -Wall -Wextra -Werror #Useful flags: -g3 -fsanitize=address
-MLXFLAGS = -lX11 -lXext
+MLXFLAGS = -lX11 -lXext -lm
 IFLAGS = -I includes \
 		 -I libft \
-		 -I mlx \
-		 -I fractol.h
-
-
+		 -I mlx 
 # Compiler to use
 CC = cc
 CLANG = clang
@@ -70,7 +68,7 @@ CLANG = clang
 all: $(LIBFT) $(MLX) $(NAME)
 
 $(NAME): $(OBJS_DIR) $(OBJS) $(INCS)
-	@$(CC) $(CFLAGS)    $(OBJS) $(LIBFT) $(MLX) $(MLXFLAGS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) $(MLXFLAGS) -o $(NAME)
 	@echo "\n$(GREEN)$(NAME) created$(CHECK)$(RESET_COLOR)"
 
 $(OBJS_DIR)/%.o:  $(SRCS_DIR)/%.c $(INCS)

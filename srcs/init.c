@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:19:37 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/07 17:25:36 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:25:02 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,17 @@ void	init_vars(t_vars *vars)
 	vars->data.img = mlx_new_image(vars->mlx, WIDTH, HEIGHT);
 	if (!vars->data.img)
 		free_exit(vars, 1);
-	vars->data.addr = mlx_get_data_addr(vars->data.img, &vars->data.bits_per_pixel, &vars->data.line_length, &vars->data.endian);
+	vars->data.addr = mlx_get_data_addr(vars->data.img, \
+	&vars->data.bits_per_pixel, &vars->data.line_length, &vars->data.endian);
 	if (!vars->data.addr)
 		free_exit(vars, 1);
+	vars->params.move_x = 0;
+	vars->params.move_y = 0;
+	vars->params.zoom = 0;
+	vars->params.color.a = 0;
+	vars->params.color.r = 0;
+	vars->params.color.g = 0;
+	vars->params.color.b = 0;
 }
 
 void	init_hooks(t_vars *vars)
@@ -39,31 +47,32 @@ void	init_hooks(t_vars *vars)
 	mlx_hook(vars->win, DestroyNotify, NoEventMask, close_window, vars);
 }
 
-void	init_fractal(t_vars *vars, char *name)
+int	init_fractal(t_vars *vars)
 {
 	int			win_x;
 	int			win_y;
-	t_color		color;
 	
-	win_x = 0;
+	memset(vars->data.addr, 0, WIDTH * sizeof(t_color) * HEIGHT);
 	win_y = 0;
-	while (win_y < HEIGHT)
+	while (win_y <= HEIGHT)
 	{
-		while (win_x < WIDTH)
+		win_x = 0;
+		while (win_x <= WIDTH)
 		{
-			color.color = calculate_color(win_x, win_y, name);
-			// change_color(???);
-			(void)color;
+			vars->params.color = calculate_color(vars, win_x, win_y);
+			render_color(vars, win_x, win_y);
 			win_x++;
 		}
 		win_y++;
 	}
-	(void)vars;
+	mlx_put_image_to_window(vars->mlx, vars->win, vars->data.img, 0, 0);
+	return (0);
 }
 
-void	init_all(t_vars *vars, char *name)
+
+void	init_all(t_vars *vars)
 {
 	init_vars(vars);
 	init_hooks(vars);
-	init_fractal(vars, name);
+	init_fractal(vars);
 }
