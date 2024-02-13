@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 18:00:53 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/11 16:26:20 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/13 18:22:51 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ double	absolute_value(double x)
 	return (x);
 }
 
-t_color	calculate_color(t_vars *vars, int x, int y)
+void	calculate_color(t_vars *vars, int x, int y)
 {
 	t_color	color;
 	int		nb_iteration;
@@ -61,10 +61,9 @@ t_color	calculate_color(t_vars *vars, int x, int y)
 		color.color = 0x00000000;
 	else
 	{
-		color.r = sin(nb_iteration) * 667;
-		color.g = sin(nb_iteration) * 7.007;
-		color.b = sin(nb_iteration) * 61;
-		color.a = 0;
+		color.r = sin(nb_iteration) * vars->params.move_color.r;
+		color.g = sin(nb_iteration) * vars->params.move_color.g;
+		color.b = sin(nb_iteration) * vars->params.move_color.b;
 	}
-	return (color);
+	vars->params.color = color;
 }

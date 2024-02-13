@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:53:09 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/11 15:20:40 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:41:17 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	main(int argc, char **argv)
 {
 	t_vars	vars;
 
-	// vars.params.color.a = 0;
 	parse_args(argc, argv, &vars);
 	init_all(&vars);
 	mlx_loop(vars.mlx);

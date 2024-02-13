@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:51:44 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/11 17:48:01 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/13 18:28:14 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 #include <stdio.h>
 
 # define TITLE "fractol"
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH 960
+# define HEIGHT 960
 # define CENTER_X WIDTH / 2
 # define CENTER_Y HEIGHT / 2
 
@@ -30,10 +30,9 @@ typedef union u_color
 	uint32_t	color;
 	struct
 	{
-		unsigned char a;
-		unsigned char r;
-		unsigned char g;
 		unsigned char b;
+		unsigned char g;
+		unsigned char r;
 	};
 }	t_color;
 
@@ -51,6 +50,7 @@ typedef struct s_params
 	char		*name;
 	t_complex	c;
 	t_color		color;
+	t_color		move_color;
 	
 }	t_params;
 
@@ -79,7 +79,7 @@ void	free_exit(t_vars *vars, int err_code);
 int		key_press(int keycode, t_vars *vars);
 int		close_window(t_vars *vars);
 int		calculate_limit(char *name, int x, int y);
-t_color	calculate_color(t_vars *vars, int x, int y);
+void	calculate_color(t_vars *vars, int x, int y);
 void	put_pixel(t_vars *vars, int x, int y);
 double	pow_complex(t_complex z);
 double	absolute_value(double x);

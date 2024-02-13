@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1024/02/02 17:18:37 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/13 16:22:54 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/13 18:27:05 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,42 +79,21 @@ void	reset_params(t_vars *vars)
 	vars->params.move_y = 0;
 	vars->params.move_x = 0;
 	vars->params.zoom = 0;
-	vars->params.color.a = 0;
-	vars->params.color.r = 0;
-	vars->params.color.g = 0;
-	vars->params.color.b = 0;
+	vars->params.move_color.r = 255;
+	vars->params.move_color.g = 255;
+	vars->params.move_color.b = 255;
 	vars->params.c.z_i = 0;
 	vars->params.c.z_r = 0;
 }
 
 void	modify_colors(t_vars *vars, int keycode)
 {
-
-	// if (keycode == XK_a)
-	(void)keycode;
-
-
-	vars->params.color.a += 8;
-	vars->params.color.r += 3;
-	vars->params.color.g += 2;
-	vars->params.color.b += 1;
-
-
-
-	// // if (vars->params.color.a == 255)
-	// 	// vars->params.color.a -= 255;
-	// if (keycode == XK_r)
-	// 	vars->params.color.r += 15;
-	// // if (vars->params.color.r == 255)
-	// 	// vars->params.color.r -= 255;
-	// if (keycode == XK_g)
-	// 	vars->params.color.g += 15;
-	// // if (vars->params.color.g == 255)
-	// 	// vars->params.color.g -= 255;
-	// if (keycode == XK_b)
-	// 	vars->params.color.b += 15;
-	// // if (vars->params.color.b == 255)
-	// 	// vars->params.color.b -= 255;
+	if (keycode == XK_r)
+		vars->params.move_color.r += 15;
+	if (keycode == XK_g)
+		vars->params.move_color.g += 15;
+	if (keycode == XK_b)
+		vars->params.move_color.b += 15;
 }
 
 int	key_press(int keycode, t_vars *vars)
@@ -138,8 +117,7 @@ int	key_press(int keycode, t_vars *vars)
 	else if (keycode == XK_a || \
 	keycode == XK_r || keycode == XK_g || keycode == XK_b)
 		modify_colors(vars, keycode);
-	if (keycode != XK_Escape)
-		init_fractal(vars);
+	init_fractal(vars);
 	return (0);
 }
 

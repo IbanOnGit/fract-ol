@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:19:37 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/13 16:25:02 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/13 18:27:28 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,9 @@ void	init_vars(t_vars *vars)
 	vars->params.move_x = 0;
 	vars->params.move_y = 0;
 	vars->params.zoom = 0;
-	vars->params.color.a = 0;
-	vars->params.color.r = 0;
-	vars->params.color.g = 0;
-	vars->params.color.b = 0;
+	vars->params.move_color.r = 255;
+	vars->params.move_color.g = 255;
+	vars->params.move_color.b = 255;
 }
 
 void	init_hooks(t_vars *vars)
@@ -51,15 +50,15 @@ int	init_fractal(t_vars *vars)
 {
 	int			win_x;
 	int			win_y;
-	
-	memset(vars->data.addr, 0, WIDTH * sizeof(t_color) * HEIGHT);
+
+	ft_memset(vars->data.addr, 0, WIDTH * sizeof(t_color) * HEIGHT);
 	win_y = 0;
 	while (win_y <= HEIGHT)
 	{
 		win_x = 0;
 		while (win_x <= WIDTH)
 		{
-			vars->params.color = calculate_color(vars, win_x, win_y);
+			calculate_color(vars, win_x, win_y);
 			render_color(vars, win_x, win_y);
 			win_x++;
 		}
