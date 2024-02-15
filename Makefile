@@ -43,9 +43,9 @@ OBJS_FILES = $(SRCS_FILES:%.c=%.o)
 SRCS_FILES = main.c \
 			 init.c \
 			 hooks_utils.c \
+			 hooks_modify.c \
 			 utils.c \
-			 maths.c \
-			 render.c
+			 maths.c
 
 INCS_FILES = *.h
 

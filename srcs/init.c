@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:19:37 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/13 18:27:28 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:13:17 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,20 @@ void	init_vars(t_vars *vars)
 		free_exit(vars, 1);
 	vars->params.move_x = 0;
 	vars->params.move_y = 0;
-	vars->params.zoom = 0;
+	vars->params.zoom = 1;
 	vars->params.move_color.r = 255;
 	vars->params.move_color.g = 255;
 	vars->params.move_color.b = 255;
+	vars->params.max_iteration = 50;
+	vars->params.c.z_r = 0;
+	vars->params.c.z_i = 0;
 }
 
 void	init_hooks(t_vars *vars)
 {
-	mlx_hook(vars->win, KeyRelease, KeyReleaseMask, key_press, vars);
+	mlx_hook(vars->win, KeyPress, KeyPressMask, key_press, vars);
 	mlx_hook(vars->win, DestroyNotify, NoEventMask, close_window, vars);
+	mlx_loop_hook(vars->mlx, init_fractal, vars);
 }
 
 int	init_fractal(t_vars *vars)
@@ -59,7 +63,7 @@ int	init_fractal(t_vars *vars)
 		while (win_x <= WIDTH)
 		{
 			calculate_color(vars, win_x, win_y);
-			render_color(vars, win_x, win_y);
+			put_pixel(vars, win_x, win_y);
 			win_x++;
 		}
 		win_y++;
@@ -68,10 +72,8 @@ int	init_fractal(t_vars *vars)
 	return (0);
 }
 
-
 void	init_all(t_vars *vars)
 {
 	init_vars(vars);
 	init_hooks(vars);
-	init_fractal(vars);
 }

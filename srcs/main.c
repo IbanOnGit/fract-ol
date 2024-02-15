@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:53:09 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/13 16:41:17 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:54:27 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,29 @@
 #include "fractol.h"
 #include "libft.h"
 #include <stdlib.h>
-// #include <X11/keysym.h>
-// #include <X11/X.h>
+
+void	error_exit(void)
+{
+	ft_printf\
+	("Available fractals are : 1 (Mandelbrot), 2 (Julia), 3 (Burning Ship)");
+	exit(0);
+}
 
 void	parse_args(int argc, char **argv, t_vars *vars)
 {
-	if (argc == 2)
+	if (argc >= 2 && argc <= 4)
 	{
-		if (!ft_strncmp(argv[1], "Mandelbrot", 11) || !ft_strncmp(argv[1], "1", 2))
+		if (!ft_strncmp(argv[1], "1", 2))
 			vars->params.name = "mandelbrot";
-		else if (!ft_strncmp(argv[1], "Julia", 6) || !ft_strncmp(argv[1], "2", 2))
+		else if (!ft_strncmp(argv[1], "2", 2))
 			vars->params.name = "julia";
-		else if (!ft_strncmp(argv[1], "Ship", 5) || !ft_strncmp(argv[1], "3", 2))
+		else if (!ft_strncmp(argv[1], "3", 2))
 			vars->params.name = "ship";
 		else
-		{
-			ft_printf("Available fractals are : Mandelbrot, Julia and Ship. Or 1, 2 and 3\n");	
-			exit(0);
-		}
+			error_exit();
 	}
-	else
-	{
-		ft_printf("Available fractals are : Mandelbrot, Julia and Ship. Or 1, 2 and 3\n");	
-		exit(0);
-	}
+	else 
+		error_exit();
 }
 
 int	main(int argc, char **argv)

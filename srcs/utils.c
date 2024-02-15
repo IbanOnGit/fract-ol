@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 18:00:53 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/13 18:22:51 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:15:01 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	put_pixel(t_vars *vars, int x, int y)
 
 	dst = vars->data.addr + \
 	(y * vars->data.line_length + x * (vars->data.bits_per_pixel / 8));
-	*(unsigned int*)dst = vars->params.color.color;
+	*(unsigned int *)dst = vars->params.color.color;
 }
 
 double	pow_complex(t_complex z)
@@ -53,11 +53,11 @@ double	absolute_value(double x)
 
 void	calculate_color(t_vars *vars, int x, int y)
 {
-	t_color	color;
-	int		nb_iteration;
+	t_color			color;
+	unsigned int	nb_iteration;
 
-	nb_iteration = calculate_limit(vars->params.name, x , y);
-	if (nb_iteration >= MAX_ITERATION)
+	nb_iteration = calculate_limit(vars, x, y);
+	if (nb_iteration >= vars->params.max_iteration)
 		color.color = 0x00000000;
 	else
 	{
