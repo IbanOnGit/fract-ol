@@ -6,11 +6,10 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 19:21:28 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/20 16:32:35 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:17:13 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
 #include <X11/keysym.h>
 #include "fractol.h"
 

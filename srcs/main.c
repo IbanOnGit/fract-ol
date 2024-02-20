@@ -6,21 +6,20 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:53:09 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/20 16:00:45 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:23:15 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include "fractol.h"
 #include "libft.h"
-#include <stdlib.h>
 
 void	error_exit(t_vars *vars)
 {
 	ft_printf \
 	("\nAvailable fractals are : 1 (Mandelbrot), 2 (Julia), 3 (Burning Ship)");
 	ft_printf \
-	("\n\nAdd up to 3 more arguments to modify the constant's value\n\n");
+	("\n\nAdd up to 3 more arguments to modify the constant or the zoom\n\n");
 	ft_printf \
 	("Ex : ./fractal 1 0 -1 5 \n1 is the Mandelbrot fractal, 0 is ");
 	ft_printf \

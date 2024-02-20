@@ -6,13 +6,12 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 18:00:53 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/15 19:15:01 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:22:40 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include "fractol.h"
-#include "libft.h"
 #include <stdlib.h>
 #include <math.h>
 

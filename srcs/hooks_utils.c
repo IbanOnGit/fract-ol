@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1024/02/02 17:18:37 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/20 16:51:55 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:17:23 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	mouse_wheel(int keycode, int x, int y, t_vars *vars)
 {
 	(void)x;
 	(void)y;
-	printf("keycode = %d\n", keycode);
 	modify_zoom(vars, keycode);
 	return (0);
 }
