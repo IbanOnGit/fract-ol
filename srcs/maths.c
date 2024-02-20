@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:03:44 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/15 19:17:54 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:54:32 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	julia(t_vars *vars, t_complex p)
 	double			tp;
 	t_complex		c;
 
-	c.z_r = -1 + vars->params.c.z_r ;
-	c.z_i = 0 + vars->params.c.z_i;
+	c.z_r = -0.33 + vars->params.c.z_r ;
+	c.z_i = 0.66 + vars->params.c.z_i;
 	nb_iteration = 0;
 	while (nb_iteration < vars->params.max_iteration && pow_complex(p) <= 4)
 	{

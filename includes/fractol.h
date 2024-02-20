@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:51:44 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/15 19:27:25 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:51:36 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,5 @@ void	modify_y(t_vars *vars, int keycode);
 void	modify_zoom(t_vars *vars, int keycode);
 void	modify_colors(t_vars *vars, int keycode);
 void	modify_iteration(t_vars *vars, int keycode);
-
+int		mouse_wheel(int keycode, int x, int y, t_vars *vars);
 #endif

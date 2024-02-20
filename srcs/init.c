@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:19:37 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/15 19:13:17 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:50:14 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	init_hooks(t_vars *vars)
 {
 	mlx_hook(vars->win, KeyPress, KeyPressMask, key_press, vars);
 	mlx_hook(vars->win, DestroyNotify, NoEventMask, close_window, vars);
+	mlx_mouse_hook(vars->win, mouse_wheel, vars);
 	mlx_loop_hook(vars->mlx, init_fractal, vars);
 }
 

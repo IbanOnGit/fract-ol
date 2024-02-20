@@ -6,7 +6,7 @@
 /*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 19:21:28 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/15 19:27:21 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:32:35 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	modify_y(t_vars *vars, int keycode)
 
 void	modify_zoom(t_vars *vars, int keycode)
 {
-	if (keycode == XK_i)
+	if (keycode == XK_i || keycode == 5)
 		vars->params.zoom *= 1.01;
-	else if (keycode == XK_o)
+	else if (keycode == XK_o || keycode == 4)
 		vars->params.zoom /= 1.01;
 }
 
