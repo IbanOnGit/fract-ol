@@ -6,7 +6,7 @@
 /*   By: ibjean-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1024/02/02 17:18:37 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/05/01 08:02:12 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/05/06 09:40:12 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,13 @@ void	reset_params(t_vars *vars)
 void	modify_complex(t_vars *vars, int keycode)
 {
 	if (keycode == 6)
-	{
 		vars->params.c.z_r += 0.01;
-		vars->params.c.z_i += 0.01;
-	}
-	else
-	{
+	if (keycode == 7)
 		vars->params.c.z_r -= 0.01;
+	if (keycode == 8)
+		vars->params.c.z_i += 0.01;
+	if (keycode == 9)
 		vars->params.c.z_i -= 0.01;
-	}
 }
 
 int	key_press(int keycode, t_vars *vars)
@@ -70,7 +68,7 @@ int	key_press(int keycode, t_vars *vars)
 		reset_params(vars);
 	else if (keycode == 12 || keycode == 13)
 		modify_iteration(vars, keycode);
-	else if (keycode == 6 || keycode == 7)
+	else if (keycode == 6 || keycode == 7 || keycode == 8 || keycode == 9)
 		modify_complex(vars, keycode);
 	else if (keycode == 15 || keycode == 5 || keycode == 11)
 		modify_colors(vars, keycode);

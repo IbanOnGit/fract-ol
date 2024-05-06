@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ibjean-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1024/02/02 17:18:37 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/20 17:17:23 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/05/06 09:48:26 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,13 @@ void	reset_params(t_vars *vars)
 void	modify_complex(t_vars *vars, int keycode)
 {
 	if (keycode == XK_z)
-	{
 		vars->params.c.z_r += 0.01;
-		vars->params.c.z_i += 0.01;
-	}
-	else
-	{
+	if (keycode == XK_a)
 		vars->params.c.z_r -= 0.01;
+	if (keycode == XK_m)
+		vars->params.c.z_i += 0.01;
+	if (keycode == XK_n)
 		vars->params.c.z_i -= 0.01;
-	}
 }
 
 int	key_press(int keycode, t_vars *vars)
@@ -69,7 +67,7 @@ int	key_press(int keycode, t_vars *vars)
 		reset_params(vars);
 	else if (keycode == XK_minus || keycode == XK_equal)
 		modify_iteration(vars, keycode);
-	else if (keycode == XK_z || keycode == XK_a)
+	else if (keycode == XK_z || keycode == XK_a || keycode == XK_m || keycode == XK_n)
 		modify_complex(vars, keycode);
 	else if (keycode == XK_a || \
 	keycode == XK_r || keycode == XK_g || keycode == XK_b)

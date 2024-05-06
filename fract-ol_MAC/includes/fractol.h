@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibjean-b <ibjean-b@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ibjean-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:51:44 by ibjean-b          #+#    #+#             */
-/*   Updated: 2024/02/20 16:51:36 by ibjean-b         ###   ########.fr       */
+/*   Updated: 2024/05/06 09:36:17 by ibjean-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <stdio.h>
 
 # define TITLE "fractol"
-# define WIDTH 960
-# define HEIGHT 960
+# define WIDTH 720
+# define HEIGHT 720
 # define PGCD 120
 
 typedef union u_color
